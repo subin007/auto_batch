@@ -6,28 +6,9 @@ const inputsFolder = path.join(__dirname, inputspath);
 const cmd = require('node-cmd');
 var fs = require('fs');
 
-router.get('/update/server', (req, res, next) => {
-    cmd.get(`start serverupdate.bat`, (err, data, stderr) => {
-      if (data) {
-        res.send("Hopefully updated the selenium server");
-      }
-    });
-});
-
-router.get('/start/server', (req, res, next) => {
-    cmd.get(
-        `start serverstart.bat`,
-        (err, data, stderr) => {
-            if (data) {
-                res.send('Hopefully started the selenium server');
-            }
-        }
-    );
-});
-
 router.get("/create/seqexecfile", (req, res, next) => {
     cmd.get(
-        `node listcreator.js`,
+        `call listcreator.bat`,
         (err, data, stderr) => {
             if (data) {
                 res.send('Done with creating sequential_execution.bat');

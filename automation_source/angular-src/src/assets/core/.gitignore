@@ -62,3 +62,5 @@ typings/
 
 result.json
 *.bat
+
+outputs/
