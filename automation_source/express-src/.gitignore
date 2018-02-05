@@ -62,3 +62,4 @@ typings/
 
 datastore/*
 outputs/*
+public/*
