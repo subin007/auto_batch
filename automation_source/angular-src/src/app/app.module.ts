@@ -9,12 +9,12 @@ import { ReportDetailsComponent } from './components/report-details/report-detai
 import { LoaderComponent } from './components/loader/loader.component';
 import { MasterComponent } from './components/master/master.component';
 import { ActionService } from './services/action.service';
-import { UiTesterComponent } from './components/ui-tester/ui-tester.component';
+import { UnifiedModelComponent } from './components/unified-model/unified-model.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/master', pathMatch: 'full' },
-  { path: 'master', component: MasterComponent },
-  { path: 'master/report/:id', component: ReportComponent }
+  { path: '', redirectTo: '/unified-model', pathMatch: 'full' },
+  { path: 'unified-model', component: UnifiedModelComponent },
+  { path: 'unified-model/report/:id', component: ReportComponent }
 ];
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ const routes: Routes = [
     ReportDetailsComponent,
     LoaderComponent,
     MasterComponent,
-    UiTesterComponent
+    UnifiedModelComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterModule.forRoot(routes)

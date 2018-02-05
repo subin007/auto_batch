@@ -11,7 +11,7 @@ router.get("/create/seqexecfile", (req, res, next) => {
         `call listcreator.bat`,
         (err, data, stderr) => {
             if (data) {
-                res.send('Done with creating sequential_execution.bat');
+                res.send('Checked inside');
             }
         }
     );
@@ -24,7 +24,7 @@ router.get("/inputlist", (req, res, next) => {
 
 router.get("/start/execution",(req, res, next)=>{
     cmd.get(
-        `call start_start_seq_execution.bat`,
+        `call start_start_seq_execution_v2.bat`,
         (err, data, stderr) => {
             if (data) {
                 res.send('Hopefully started sequential_execution.bat');
