@@ -24,7 +24,7 @@ const megaThrowObj = {
 
 fs.readdir(path.join(__dirname,'../../inputs'),(err,files)=>{
     files.forEach((file,i)=>{
-        if (file.includes('json')){
+        if (file.includes('.json')){
             let newVal = `"${file}" `;
             let res = fisrtLine.concat(newVal);
             fisrtLine = res;
