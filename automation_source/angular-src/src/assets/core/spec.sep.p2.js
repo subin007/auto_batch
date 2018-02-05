@@ -105,6 +105,12 @@ describe('Device Suite', function () {
                                 el.activeTimeV3.getText().then(function (activeTime) {
                                     currentValuesForSingle._activeTime = activeTime;
                                 });
+                                //Edited on 31st Jan, 2017
+                                //Reason: FIXED ISSUE - for 'ssv' the activeValue for reporting was set at the beginning of the for loop and was not updated after default wait time, hence added the below lines to do the updation
+                                el.activeValueV3.getText().then(function (activeValue) {
+                                    currentValuesForSingle._activeValue = activeValue;
+                                });
+                                //
                                 expect(el.activeValueV3.getText()).toEqual((singleAttrTestcase.expectedValue).toString());
 
                                 mega.testCaseResultV2(testsuite.testCaseName, singleAttrTestcase.attrName, currentValuesForSingle, "ssv", singleAttrTestcase.expectedValue);
