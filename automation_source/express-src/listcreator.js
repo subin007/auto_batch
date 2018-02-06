@@ -11,7 +11,7 @@ const megaThrowObj = {
     metadata: {
         startedAt: null,
         finishedAt: null,
-        running: true
+        running: false
     },
     initials: {
         loginOne: null,
