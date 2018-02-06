@@ -59,5 +59,17 @@
     <button type="button"  *ngIf="displayListRefresh" class="btn btn-dark m-4" style="cursor: pointer;" (click)="onStartExecutionClick()">Start Execution</button>
     <h4 *ngIf="!displayListRefresh">Running....</h4>
   </div>
-
+  <div class="d-flex justify-content-center" *ngIf="!displayListRefresh">
+        <h3>****Remember to take the necessary printouts before doing restart</h3>
+</div>
+  <div class="d-flex flex-wrap justify-content-center mt-5" *ngIf="!displayListRefresh">
+        <h4>If you want to stop the execution, close the "automation cmd" </h4>
+          <h4>& only when confirmed that all have closed </h4><br>
+          <i><small>You can click on Restart button</small></i>
+        
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" *ngIf="!displayListRefresh" class="btn btn-outline-danger m-4" style="cursor: pointer;" (click)="onRestartClick()">Restart</button>
+  </div>
+  
 </div>
