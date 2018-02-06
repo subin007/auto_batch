@@ -11,12 +11,12 @@ const httpOptions = {
 };
 @Injectable()
 export class ResultService {
-  private heroesUrl = "assets/data.json";
-  private resultsUrl = "assets/result.json";
-  private testRunResult = "assets/result.json";
-  private megaThrowReport = "assets/mega-throw.v2.json";
+  private heroesUrl = 'assets/data.json';
+  private resultsUrl = 'assets/result.json';
+  private testRunResult = 'assets/result.json';
+  private megaThrowReport = 'assets/mega-throw.v2.json';
   // private outputLocation = '../../core/outputs/';
-  private outputLocation = "assets/";
+  private outputLocation = 'assets/';
   public failedResultsCount = 0;
   public passedResultsCount = 0;
   constructor(private http: HttpClient) {}
@@ -50,6 +50,8 @@ export class ResultService {
     let running;
     let finishedAt: any;
     this.getMetadataFromInputFilename(filename).subscribe(data => {
+      console.log(`metadata from the file ${filename} is`);
+      console.log(data)
       running = data.running;
       finishedAt = data.finishedAt;
     });
