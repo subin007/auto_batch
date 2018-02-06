@@ -21,14 +21,16 @@ export class ActionService {
   fromInputCreateBatchAndMegathrows(): Observable<any> {
     return this.http.get<any>(`${environment.url}/actions/create/seqexecfile`);
   }
-  getListOfInputFiles(): Observable<ExecutionInfo> {
+  getListOfInputFiles(): Observable<any> {
     return this.http.get<any>(`${environment.url}/actions/inputlist`).pipe(
       map(data => data.inputFiles)
     );
   }
 
   startSequentialExecution(): Observable<any> {
-    return this.http.get<any>(`${environment.url}/actions/start/execution`);
+    return this.http.get<any>(`${environment.url}/actions/start/execution`).pipe(
+      map(data => JSON.parse(data))
+    );
   }
 
 }
