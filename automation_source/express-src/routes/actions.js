@@ -19,7 +19,6 @@ router.get("/create/seqexecfile", (req, res, next) => {
 
 router.get("/inputlist", (req, res, next) => {
     var exec_info = JSON.parse(fs.readFileSync("./datastore/execution_info.json"));
-    console.log(exec_info.inputFiles);
     res.json({ inputFiles: exec_info.inputFiles});
 });
 
