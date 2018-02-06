@@ -8,7 +8,7 @@
         <li class="nav-item active">
           <a class="nav-link " href="#">Started at: {{metadata.startedAt | date: 'EEEE, MMM d, y @ h:mm:ss a'}}
             <br>
-            <span *ngIf="metadata.finishedAt">Finished at: {{metadata.finishedAt | date: 'EEEE, MMM d, y @ h:mm:ss a'}}
+            <span *ngIf="metadata.finishedAt !== null">Finished at: {{metadata.finishedAt | date: 'EEEE, MMM d, y @ h:mm:ss a'}}
             </span>
           </a>
         </li>

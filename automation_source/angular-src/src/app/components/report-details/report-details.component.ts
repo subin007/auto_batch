@@ -1,4 +1,5 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit, OnChanges , Input} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ResultService } from '../../services/result.service';
 import { Title } from '@angular/platform-browser';
@@ -9,11 +10,12 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./report-details.component.css'],
   providers: [ResultService]
 })
-export class ReportDetailsComponent implements OnInit {
+export class ReportDetailsComponent implements OnInit, OnChanges {
   metadata; initials; specSprint;
+  filename;
   @Input() passCount: number;
   @Input() failCount: number;
-  constructor(private http: HttpClient, private resultService: ResultService) { }
+  constructor(private http: HttpClient, private resultService: ResultService, private activeRoute: ActivatedRoute) { }
   initialConditionsVerification() {
     if (this.initials.deviceOnline === null) {
       if (this.initials.saidClaimed === null) {
@@ -30,11 +32,20 @@ export class ReportDetailsComponent implements OnInit {
     return 'Checked Device Online Status';
   }
   ngOnInit() {
-    this.resultService.getMegaThrowReport().subscribe(data => {
+    this.activeRoute.params.subscribe(params => {
+      this.filename = params['id'];
+    });
+    this.resultService.getMegaThrowReportFromID(this.filename).subscribe(data => {
       this.metadata = data.metadata;
       this.initials = data.initials;
       this.specSprint = data.specSprint;
     }
     );
+  }
+
+  ngOnChanges() {
+    this.activeRoute.params.subscribe(params => {
+      this.filename = params['id'];
+    });
   }
 }
