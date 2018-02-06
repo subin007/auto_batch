@@ -11,15 +11,16 @@ router.get("/create/seqexecfile", (req, res, next) => {
         `call listcreator.bat`,
         (err, data, stderr) => {
             if (data) {
-                res.send('Checked inside');
+                res.json({msg : 'Checked inside'});
             }
         }
     );
 });
 
 router.get("/inputlist", (req, res, next) => {
-    var exec_info = fs.readFileSync("./datastore/execution_info.json");
-    res.send(exec_info);
+    var exec_info = JSON.parse(fs.readFileSync("./datastore/execution_info.json"));
+    console.log(exec_info.inputFiles);
+    res.json({ inputFiles: exec_info.inputFiles});
 });
 
 router.get("/start/execution",(req, res, next)=>{
@@ -27,7 +28,7 @@ router.get("/start/execution",(req, res, next)=>{
         `call start_start_seq_execution_v2.bat`,
         (err, data, stderr) => {
             if (data) {
-                res.send('Hopefully started sequential_execution.bat');
+                res.json({ msg: 'Hopefully started sequential_execution.bat'});
             }
         }
     )
